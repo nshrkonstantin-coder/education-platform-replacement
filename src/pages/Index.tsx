@@ -20,7 +20,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#2B4C8F] via-[#264283] to-[#1E3A6F] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#16a34a] via-[#15803d] to-[#166534] flex items-center justify-center p-4">
       <div className="w-full max-w-6xl">
         <div className="text-center mb-8">
           <div className="inline-block bg-gradient-to-br from-orange-500 to-orange-600 p-6 rounded-3xl shadow-2xl mb-6">
@@ -31,7 +31,7 @@ const Index = () => {
             АО "ГРК "Западная"""
           </h1>
           
-          <p className="text-blue-200 text-lg">
+          <p className="text-green-200 text-lg">
             Система управления охраной труда и пожарной безопасностью
           </p>
         </div>
@@ -118,7 +118,7 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        <Card className="max-w-2xl mx-auto mt-6 bg-blue-900/30 border-blue-700/50 backdrop-blur">
+        <Card className="max-w-2xl mx-auto mt-6 bg-green-900/30 border-green-700/50 backdrop-blur">
           <CardContent className="p-6">
             <div className="flex items-start gap-4">
               <div className="bg-orange-500/20 p-3 rounded-full flex-shrink-0">
@@ -128,7 +128,7 @@ const Index = () => {
                 <h3 className="text-white font-semibold text-lg mb-2">
                   Безопасность прежде всего
                 </h3>
-                <p className="text-blue-200 text-sm leading-relaxed">
+                <p className="text-green-200 text-sm leading-relaxed">
                   Система соответствует требованиям информационной безопасности и стандартам защиты персональных данных
                 </p>
               </div>
@@ -137,9 +137,9 @@ const Index = () => {
         </Card>
 
         <div className="text-center mt-6">
-          <p className="text-blue-200">
+          <p className="text-green-200">
             Возникли вопросы?{' '}
-            <a href="#" className="text-white font-semibold underline hover:text-blue-100 transition-colors">
+            <a href="#" className="text-white font-semibold underline hover:text-green-100 transition-colors">
               Свяжитесь с поддержкой
             </a>
           </p>
