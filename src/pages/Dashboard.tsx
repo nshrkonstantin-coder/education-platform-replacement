@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [userName] = useState('Специалист по ОТ');
+  const [userName] = useState('Шнюков Константин Анатольевич');
+  const [userRole] = useState('Главный администратор');
 
   const handleLogout = () => {
     navigate('/');
@@ -14,72 +15,120 @@ const Dashboard = () => {
 
   const modules = [
     {
-      icon: 'FileText',
-      title: 'Инструктажи',
-      description: 'Просмотр и прохождение инструктажей по охране труда',
+      icon: 'BookOpen',
+      title: 'Каталог инструкций',
+      description: 'База знаний по охране труда и пожарной безопасности',
+      count: '0 инструкций',
       color: 'bg-blue-500',
       link: '/instructions'
     },
     {
-      icon: 'ClipboardCheck',
-      title: 'Проверки знаний',
-      description: 'Тестирование и проверка знаний по ОТ и ПБ',
+      icon: 'GraduationCap',
+      title: 'Программы обучения',
+      description: 'Готовые курсы по различным направлениям',
+      count: '0 программ',
       color: 'bg-green-500',
-      link: '/tests'
+      link: '/programs'
     },
     {
-      icon: 'Shield',
-      title: 'Пожарная безопасность',
-      description: 'Материалы и инструкции по пожарной безопасности',
-      color: 'bg-orange-500',
-      link: '/fire-safety'
-    },
-    {
-      icon: 'BookOpen',
-      title: 'Документация',
-      description: 'Нормативные документы и методические материалы',
+      icon: 'ClipboardCheck',
+      title: 'Тестирование',
+      description: 'Создание и проведение тестов и экзаменов',
+      count: '0 тестов',
       color: 'bg-purple-500',
+      link: '/testing'
+    },
+    {
+      icon: 'FileText',
+      title: 'Каталог тестов',
+      description: 'Разработка и управление тестами по направлениям',
+      count: '0 тестов',
+      color: 'bg-pink-500',
+      link: '/test-catalog'
+    },
+    {
+      icon: 'FileCheck',
+      title: 'Реестр протоколов',
+      description: 'Учет всех проведенных тестирований и результатов',
+      count: '0 протоколов',
+      color: 'bg-blue-600',
+      link: '/protocols'
+    },
+    {
+      icon: 'Award',
+      title: 'Сертификаты',
+      description: 'Выдача удостоверений и сертификатов',
+      count: '0 выдано',
+      color: 'bg-orange-500',
+      link: '/certificates'
+    },
+    {
+      icon: 'FileText',
+      title: 'Документы',
+      description: 'Создание инструкций и программ с помощью ИИ',
+      count: 'ИИ генератор',
+      color: 'bg-purple-600',
       link: '/documents'
     },
     {
-      icon: 'Calendar',
-      title: 'График обучения',
-      description: 'Расписание инструктажей и проверок',
+      icon: 'BarChart3',
+      title: 'Аналитика',
+      description: 'Отчёты и статистика по обучению',
+      count: '0 отчётов',
       color: 'bg-indigo-500',
-      link: '/schedule'
+      link: '/analytics'
     },
     {
-      icon: 'BarChart3',
-      title: 'Статистика',
-      description: 'Результаты тестирований и прогресс обучения',
-      color: 'bg-cyan-500',
-      link: '/statistics'
+      icon: 'Users',
+      title: 'Управление слушателями',
+      description: 'Регистрация и настройка программ для слушателей',
+      count: '0 слушателей',
+      color: 'bg-red-500',
+      link: '/students'
+    },
+    {
+      icon: 'Video',
+      title: 'Видеоматериалы',
+      description: 'Загрузка и управление учебными видео',
+      count: '0 видео',
+      color: 'bg-pink-600',
+      link: '/videos'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-xl">
-                <Icon name="ShieldCheck" size={32} className="text-white" />
+            <div className="flex items-center gap-3">
+              <div className="bg-primary p-3 rounded-xl">
+                <Icon name="ShieldCheck" size={28} className="text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">АО "ГРК "Западная""</h1>
-                <p className="text-sm text-gray-500">Система управления охраной труда</p>
+                <h1 className="text-xl font-bold text-gray-900">АО "ГРК "Западная""</h1>
+                <p className="text-xs text-gray-500">Главная панель управления</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="text-right hidden sm:block">
-                <p className="text-sm font-medium text-gray-900">{userName}</p>
-                <p className="text-xs text-gray-500">Личный кабинет</p>
+              <Button variant="ghost" size="icon">
+                <Icon name="Bell" size={20} />
+              </Button>
+              <div className="flex items-center gap-3">
+                <div className="bg-purple-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm">
+                  ШК
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-gray-900">{userName}</p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs bg-red-500 text-white px-2 py-0.5 rounded-full font-medium">SUPER</span>
+                    <span className="text-xs text-gray-500">{userRole}</span>
+                  </div>
+                </div>
               </div>
-              <Button variant="outline" onClick={handleLogout}>
-                <Icon name="LogOut" className="mr-2" size={18} />
-                Выход
+              <Button variant="ghost" size="icon" onClick={handleLogout}>
+                <Icon name="LogOut" size={20} />
               </Button>
             </div>
           </div>
@@ -87,147 +136,64 @@ const Dashboard = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Welcome Section */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
-            Добро пожаловать, {userName}!
+        <div className="mb-10 text-center">
+          <h2 className="text-4xl font-bold text-primary mb-3">
+            Добро пожаловать, Константин!
           </h2>
-          <p className="text-gray-600">
-            Выберите раздел для работы с системой охраны труда и пожарной безопасности
+          <p className="text-gray-600 text-lg">
+            Выберите раздел для работы
           </p>
         </div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-500">Пройдено тестов</p>
-                  <p className="text-2xl font-bold text-gray-900">12</p>
-                </div>
-                <div className="bg-green-100 p-3 rounded-full">
-                  <Icon name="CheckCircle" className="text-green-600" size={24} />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-500">Ожидают проверки</p>
-                  <p className="text-2xl font-bold text-gray-900">3</p>
-                </div>
-                <div className="bg-orange-100 p-3 rounded-full">
-                  <Icon name="Clock" className="text-orange-600" size={24} />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-500">Инструктажи</p>
-                  <p className="text-2xl font-bold text-gray-900">8</p>
-                </div>
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <Icon name="FileText" className="text-blue-600" size={24} />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-500">Средний балл</p>
-                  <p className="text-2xl font-bold text-gray-900">4.8</p>
-                </div>
-                <div className="bg-purple-100 p-3 rounded-full">
-                  <Icon name="Award" className="text-purple-600" size={24} />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
         {/* Modules Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {modules.map((module, index) => (
             <Card 
               key={index}
-              className="hover:shadow-lg transition-all duration-200 cursor-pointer group"
+              className="hover:shadow-xl transition-all duration-300 cursor-pointer group bg-white"
               onClick={() => navigate(module.link)}
             >
-              <CardHeader>
-                <div className="flex items-start gap-4">
-                  <div className={`${module.color} p-4 rounded-xl group-hover:scale-110 transition-transform`}>
-                    <Icon name={module.icon as any} size={28} className="text-white" />
+              <CardContent className="p-6">
+                <div className="flex flex-col items-center text-center">
+                  <div className={`${module.color} p-5 rounded-2xl mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon name={module.icon as any} size={36} className="text-white" />
                   </div>
-                  <div className="flex-1">
-                    <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
-                      {module.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm">
-                      {module.description}
-                    </CardDescription>
+                  <CardTitle className="text-lg font-bold mb-2 text-gray-900">
+                    {module.title}
+                  </CardTitle>
+                  <CardDescription className="text-sm text-gray-600 mb-4">
+                    {module.description}
+                  </CardDescription>
+                  <div className="flex items-center justify-between w-full pt-3 border-t">
+                    <span className="text-sm text-gray-500">{module.count}</span>
+                    <Icon name="ArrowRight" className="text-gray-400" size={18} />
                   </div>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
-                  Открыть
-                  <Icon name="ArrowRight" className="ml-2" size={18} />
-                </Button>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Recent Activity */}
-        <Card className="mt-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Icon name="Activity" size={24} />
-              Последняя активность
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
-                <div className="bg-green-100 p-2 rounded-full">
-                  <Icon name="CheckCircle" className="text-green-600" size={20} />
-                </div>
-                <div className="flex-1">
-                  <p className="font-medium text-gray-900">Тест "Пожарная безопасность" пройден</p>
-                  <p className="text-sm text-gray-500">Результат: 95% • 2 часа назад</p>
-                </div>
+        {/* Admin Panel */}
+        <Card className="bg-gradient-to-r from-pink-50 to-purple-50 border-pink-200">
+          <CardContent className="p-8">
+            <div className="flex items-start gap-6">
+              <div className="bg-purple-500 p-4 rounded-2xl">
+                <Icon name="Shield" size={36} className="text-white" />
               </div>
-
-              <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  <Icon name="FileText" className="text-blue-600" size={20} />
-                </div>
-                <div className="flex-1">
-                  <p className="font-medium text-gray-900">Инструктаж по ОТ просмотрен</p>
-                  <p className="text-sm text-gray-500">Вчера, 14:30</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
-                <div className="bg-orange-100 p-2 rounded-full">
-                  <Icon name="AlertCircle" className="text-orange-600" size={20} />
-                </div>
-                <div className="flex-1">
-                  <p className="font-medium text-gray-900">Новое требование по промбезопасности</p>
-                  <p className="text-sm text-gray-500">3 дня назад</p>
-                </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Панель главного администратора
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Управление администраторами ОТ и ПБ, настройка системы и полный контроль веб-приложения
+                </p>
+                <Button className="bg-purple-600 hover:bg-purple-700">
+                  <Icon name="Settings" className="mr-2" size={20} />
+                  Управление администраторами
+                </Button>
               </div>
             </div>
           </CardContent>
