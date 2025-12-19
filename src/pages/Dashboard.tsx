@@ -171,7 +171,7 @@ const Dashboard = () => {
                     <Icon name={module.icon as any} size={28} className="text-white" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
+                    <CardTitle className="text-xl mb-2 group-hover:text-blue-600 transition-colors">
                       {module.title}
                     </CardTitle>
                     <CardDescription className="text-sm">
